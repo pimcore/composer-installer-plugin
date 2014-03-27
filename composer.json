@@ -1,0 +1,22 @@
+{
+    "name": "pimcore/installer-plugin",
+    "type": "composer-installer",
+    "license": "BSD-3-Clause",
+	"description": "A custom composer installer for pimcore - plugins",
+	"keywords": ["pimcore","plugin","installer"],
+	"homepage": "http://www.pimcore.org/",
+	"authors": [
+        {
+            "name": "pimcore Team",
+            "email": "info@pimcore.com",
+            "homepage": "http://www.pimcore.org/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"Pimcore\\Composer\\": "src/"}
+    },
+    "extra": {
+        "class": "Pimcore\\Composer\\PluginInstaller"
+    }
+} 
