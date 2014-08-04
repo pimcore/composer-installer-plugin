@@ -18,8 +18,5 @@
     },
     "extra": {
         "class": "Pimcore\\Composer\\PluginInstaller"
-    },
-	"require": {
-        "pimcore/pimcore": ">=2"
     }
 } 
