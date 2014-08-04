@@ -12,7 +12,7 @@ class PluginInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        return './www/plugins/';
+        return './www/plugins/' . $package->getName() . "/";
     }
 
     /**
