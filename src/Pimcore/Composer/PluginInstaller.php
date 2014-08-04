@@ -12,7 +12,13 @@ class PluginInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        return './www/plugins/' . $package->getName() . "/";
+		$pluginName = ucfirst($package->getName()); 
+		$pluginName = preg_replace_callback("/\-[a-z]/", function ($matches) {
+            $replacement = str_replace("-","",$matches[0]);
+            return strtoupper($replacement);
+        }, $pluginName);
+		
+        return './www/plugins/' . $pluginName . "/";
     }
 
     /**
