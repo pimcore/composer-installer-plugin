@@ -12,7 +12,8 @@ class PluginInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-		$pluginName = ucfirst($package->getName()); 
+		$pluginNameParts = explode("/",$package->getName());
+		$pluginName = ucfirst($pluginNameParts[1]); 
 		$pluginName = preg_replace_callback("/\-[a-z]/", function ($matches) {
             $replacement = str_replace("-","",$matches[0]);
             return strtoupper($replacement);
