@@ -19,7 +19,13 @@ class PluginInstaller extends LibraryInstaller
             return strtoupper($replacement);
         }, $pluginName);
 		
-        return './www/plugins/' . $pluginName . "/";
+		
+		$docRootName = "./www"; 
+		if($configDocRoot = $this->composer->getConfig()->get("document-root-path")) {
+			$docRootName = rtrim($configDocRoot,"/");
+		}
+		
+        return $docRootName . '/plugins/' . $pluginName . "/";
     }
 
     /**
