@@ -20,6 +20,6 @@
         "class": "Pimcore\\Composer\\PluginInstaller"
     },
 	"require": {
-        "pimcore/pimcore": "@dev"
+        "pimcore/pimcore": ">=2"
     }
 } 
