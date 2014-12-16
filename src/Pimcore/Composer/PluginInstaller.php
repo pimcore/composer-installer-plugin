@@ -20,7 +20,7 @@ class PluginInstaller extends LibraryInstaller
         }, $pluginName);
 		
 		
-		$docRootName = "./www"; 
+		$docRootName = "./"; 
 		if($configDocRoot = $this->composer->getConfig()->get("document-root-path")) {
 			$docRootName = rtrim($configDocRoot,"/");
 		}
