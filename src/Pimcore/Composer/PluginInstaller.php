@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Pimcore\Composer;
 
@@ -12,20 +12,24 @@ class PluginInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-		$pluginNameParts = explode("/",$package->getPrettyName());
-		$pluginName = ucfirst($pluginNameParts[1]); 
-		$pluginName = preg_replace_callback("/\-[a-z]/", function ($matches) {
-            $replacement = str_replace("-","",$matches[0]);
+        $pluginNameParts = explode('/', $package->getPrettyName());
+        $pluginName = ucfirst($pluginNameParts[1]);
+        $pluginName = preg_replace_callback('/\-[a-z]/', function ($matches) {
+            $replacement = str_replace('-', '', $matches[0]);
             return strtoupper($replacement);
         }, $pluginName);
-		
-		
-		$docRootName = "./"; 
-		if($configDocRoot = $this->composer->getConfig()->get("document-root-path")) {
-			$docRootName = rtrim($configDocRoot,"/");
-		}
-		
-        return $docRootName . '/plugins/' . $pluginName . "/";
+
+        $extra = $package->getExtra();
+        if (!empty($extra['installer-name'])) {
+            $pluginName = $extra['installer-name'];
+        }
+
+        $docRootName = './';
+        if ($configDocRoot = $this->composer->getConfig()->get('document-root-path')) {
+            $docRootName = rtrim($configDocRoot, "/");
+        }
+
+        return $docRootName . '/plugins/' . $pluginName . '/';
     }
 
     /**
